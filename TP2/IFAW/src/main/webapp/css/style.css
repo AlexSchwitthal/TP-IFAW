@@ -1,0 +1,12 @@
+* {
+	font-size: 12px;
+	font-family: Arial;
+}
+
+label {
+	font-weight: bold;
+}
+
+label[for=email] {
+	color: red;
+}

@@ -1,0 +1,29 @@
+<%-- 
+    Document   : factorielle
+    Created on : 9 oct. 2020, 20:15:15
+    Author     : alexa
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <%@include file="header.jsp" %>
+           <form method="post"  action="affichageFactorielle.jsp">
+                <div class="form-group">
+                    <div>
+                        <label for="factorielle">Factorielle :</label>
+                        <input type="number" id="factorielle" name="factorielle" class="form-control" min="1" max="10">
+                        <br />
+                    </div>
+                    <div>
+                        <input type="submit" value="Soumettre" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+    </body>
+</html>
