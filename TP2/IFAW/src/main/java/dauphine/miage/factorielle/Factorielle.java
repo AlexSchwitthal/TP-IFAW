@@ -12,10 +12,13 @@ package dauphine.miage.factorielle;
 public class Factorielle {
     
     public static String calculFactorielle(int valeur) {
+        String s = "";
         int total = 1;
-        for(int i = 0; i < valeur; i++) {
+        for(int i = 1; i <= valeur; i++) {
+            s += total + " * " + i + " = ";
             total = total * i;
+            s += total + "!";
         }
-        return Integer.toString(total); 
+        return s; 
     }
 }

@@ -4,6 +4,7 @@
     Author     : alexa
 --%>
 
+<%@page import="dauphine.miage.factorielle.Factorielle"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,12 +14,17 @@
     </head>
     <body>
         <%@include file="header.jsp" %>
-        <% 
-            int factorielle = Integer.valueOf(request.getParameter("factorielle"));
-            for(int i = 0; i < factorielle; i++) {
-                //calculFactorielle(i);
+        <p> resultat factorielle de <%= request.getParameter("factorielle")%> : </p>
+        <%
+            String result = Factorielle.calculFactorielle(Integer.valueOf(request.getParameter("factorielle")));
+            String[] lines = result.split("!");
+            for(int i = 0; i < lines.length; i++) {
+                %>
+                <p>
+                    <% out.println(lines[i]); %>
+                </p>
+                <%
             }
         %>
-        
     </body>
 </html>
