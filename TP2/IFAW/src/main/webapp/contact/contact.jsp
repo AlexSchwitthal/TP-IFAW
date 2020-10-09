@@ -8,8 +8,8 @@
     </head>
     <body>
         <div class="container">
-            <%@include file="header.jsp" %>
-            <form method="post"  action="afficherContact.jsp">
+            <%@include file="../header.jsp" %>
+            <form method="post"  action="afficherContact">
                 <div class="form-group">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

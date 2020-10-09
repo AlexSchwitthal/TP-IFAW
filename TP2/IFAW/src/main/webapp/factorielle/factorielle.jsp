@@ -12,12 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%@include file="header.jsp" %>
-           <form method="post"  action="affichageFactorielle.jsp">
+        <div class="container">
+            <%@include file="../header.jsp" %>
+            <form method="post"  action="affichageFactorielle">
                 <div class="form-group">
                     <div>
                         <label for="factorielle">Factorielle :</label>
-                        <input type="number" id="factorielle" name="factorielle" class="form-control" min="1" max="10">
+                        <input type="number" id="factorielle" name="factorielle" class="form-control" min="1" max="10" required>
                         <br />
                     </div>
                     <div>
@@ -25,5 +26,7 @@
                     </div>
                 </div>
             </form>
+        </div>
+
     </body>
 </html>

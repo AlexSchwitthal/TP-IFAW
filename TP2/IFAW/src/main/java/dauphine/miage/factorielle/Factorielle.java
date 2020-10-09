@@ -12,6 +12,9 @@ package dauphine.miage.factorielle;
 public class Factorielle {
     
     public static String calculFactorielle(int valeur) {
+        if(valeur < 1) {
+            throw new Illegal­Argument­Exception("la valeur doit être strictement supérieur à 1 !");
+        }
         String s = "";
         int total = 1;
         for(int i = 1; i <= valeur; i++) {
