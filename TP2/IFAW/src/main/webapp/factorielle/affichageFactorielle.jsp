@@ -15,23 +15,18 @@
     <body>
         <div class="container">
             <%@include file="../header.jsp" %>
-            <%
-                if (request.getParameter("factorielle").isEmpty()) {
-                    session.setAttribute("warning", "la valeur de factorielle est nul !");
-                    response.sendRedirect("erreur");
-                    throw new NullPointerException("la valeur de factorielle est nul !");
-                } 
-                else {
-            %>
             <p> resultat factorielle de <%= request.getParameter("factorielle")%> : </p>
             <%
+            try {
                 String result = Factorielle.calculFactorielle(Integer.valueOf(request.getParameter("factorielle")));
                 String[] lines = result.split("!");
                 for (int i = 0; i < lines.length; i++) {
-            %>
-            <p> <% out.println(lines[i]); %> </p>
-            <%
+                    %> <p> <%= lines[i] %> </p> <%
                 }
+            }
+            catch(IllegalArgumentException e) {
+                session.setAttribute("warning", "la valeur de factorielle saisie doit être un chiffre supérieur à 0 !");
+                response.sendRedirect("erreur");
             }
             %>
         </div>

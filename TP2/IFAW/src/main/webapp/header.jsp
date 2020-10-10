@@ -12,5 +12,6 @@
         </div>
     </div>
 </nav>
+<hr>
 
 <br />

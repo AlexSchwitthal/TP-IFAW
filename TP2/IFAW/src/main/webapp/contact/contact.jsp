@@ -63,7 +63,7 @@
                     <div>
                         <input type="submit" value="Soumettre" class="btn btn-primary">
 
-                        <input type="reset" value="remettre Ã  zÃ©ro" class="btn btn-danger">
+                        <input type="reset" value="remettre à zéro" class="btn btn-danger">
 
                         <button id="javascript" type="button" class="btn btn-success" onclick="appelJS('name', 'Name value changed')">
                             Appel javascript
