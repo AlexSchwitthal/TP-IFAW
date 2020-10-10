@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="css/style.css">
 <h1>TP2 : JSP</h1>
 <h2>Alexandre SCHWITTHAL</h2>
+
 <nav class="navbar navbar-expand navbar-dark bg-dark">
     <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav mr-auto">
