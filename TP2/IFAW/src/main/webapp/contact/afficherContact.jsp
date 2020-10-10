@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <%@include file="../login/loginCheck.jsp" %>
         <div class="container">
             <%@include file="../header.jsp" %>
 

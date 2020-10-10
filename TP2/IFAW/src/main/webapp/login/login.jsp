@@ -26,14 +26,29 @@
                     <br>
                     <%
                 }
-             %>
+                
+                else {
+                    if(session.getAttribute("erreurAcces") != null) {
+                        %> 
+                        <div class="alert alert-danger" role="alert">
+                            <%= session.getAttribute("erreurAcces") %>
+                        </div>
+                        <%
+                        session.removeAttribute("erreurAcces");
+                    }
+
+                    if(session.getAttribute("login") != null) {
+                        response.sendRedirect("affichage");
+                    }
+                }
+            %>
             <h1>Bonjour, veuillez rentrer vos identifiants</h1>
             <hr>
             <form method="post"  action="affichage">
                 <div class="form-group">
                     <div>
-                        <label for="nom">Nom :</label>
-                        <input type="text" id="nom" name="nom" class="form-control" maxlength="15" required>
+                        <label for="login">Nom :</label>
+                        <input type="text" id="login" name="login" class="form-control" maxlength="15" required>
                         <br />
                     </div>
                     <div>

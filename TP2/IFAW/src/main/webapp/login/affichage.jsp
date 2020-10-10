@@ -16,12 +16,19 @@
     <body>
         <%
             try {
+                // vérifie que l'on est bien passé par le formulaire de connexion
+                if(session.getAttribute("login") == null && request.getAttribute("login") == null) {
+                    session.setAttribute("erreurAcces", "Vous ne pouvez pas accéder à la page demandé, vous devez d'abord vous connecté");
+                    response.sendRedirect("login");
+                }
                 Date dateCourante = new Date();
                 DateFormat formatFR = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
                 if(session.getAttribute("dateCreation") == null) {
                     session.setAttribute("dateCreation", formatFR.format(dateCourante));
                 }
-                session.setAttribute("nom", request.getParameter("nom"));
+                if(request.getParameter("login") != null) {
+                    session.setAttribute("login", request.getParameter("login"));
+                }
                 session.setAttribute("dateVisite", formatFR.format(dateCourante));  
                 session.setMaxInactiveInterval(3600);
             }
@@ -32,7 +39,7 @@
         %>
         <div class="container">
             <%@include file="../header.jsp" %>
-                <h4>Nom : <%= session.getAttribute("nom") %></h4>
+                <h4>Nom : <%= session.getAttribute("login") %></h4>
                 <h4>Dernière date d'accès : <%= session.getAttribute("dateVisite") %></h4>
                 <h4>Date de création de la session : <%= session.getAttribute("dateCreation") %></h4>
                 <hr>

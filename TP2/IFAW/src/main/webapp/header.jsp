@@ -8,6 +8,14 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="contact">Contact</a>
                 <a class="nav-item nav-link active" href="factorielle">Factorielle</a>
+                <%
+                    if(session.getAttribute("login") == null) {
+                        %><a class="nav-item nav-link active" href="login">Connexion</a> <% 
+                    }
+                    else {
+                        %><a class="nav-item nav-link active" href="affichage">Session</a> <% 
+                    }
+                %>
             </div>
         </div>
     </div>
