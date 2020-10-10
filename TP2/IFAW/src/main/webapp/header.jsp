@@ -2,22 +2,26 @@
 <link rel="stylesheet" href="css/style.css">
 <h1>TP2 : JSP</h1>
 <h2>Alexandre SCHWITTHAL</h2>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="form-group">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="contact">Contact</a>
-                <a class="nav-item nav-link active" href="factorielle">Factorielle</a>
-                <%
-                    if(session.getAttribute("login") == null) {
-                        %><a class="nav-item nav-link active" href="login">Connexion</a> <% 
-                    }
-                    else {
-                        %><a class="nav-item nav-link active" href="affichage">Session</a> <% 
-                    }
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="contact">Contact <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="factorielle">Factorielle</a>
+            </li>
+            <li class="nav-item active">
+             <%
+                if (session.getAttribute("login") == null) {
+                    %><a class="nav-link" href="login">Connexion</a> <%
+                } 
+                else {
+                    %><a class="nav-link" href="affichage">Session</a> <%
+                }
                 %>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 </nav>
 <hr>

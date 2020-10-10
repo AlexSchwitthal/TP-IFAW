@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FactorielleTest {
     
     public FactorielleTest() {
-        resultatFactorielleTest();
+        //resultatFactorielleTest();
     }
     
     @Test
@@ -31,7 +31,7 @@ public class FactorielleTest {
         result = Factorielle.calculFactorielle(2);
         assertEquals("1 * 1 = 1!1 * 2 = 2!", result);
         
-         result = Factorielle.calculFactorielle(3);
+        result = Factorielle.calculFactorielle(3);
         assertEquals("1 * 1 = 1!1 * 2 = 2!2 * 3 = 6!", result);
     }
 }
