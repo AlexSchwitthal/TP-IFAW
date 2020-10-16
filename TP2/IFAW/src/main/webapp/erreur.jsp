@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <%@include file="../header.jsp" %>
+            <%@include file="header.jsp" %>
             <div class="alert alert-danger" role="alert">
                 l'erreur suivante est survenue : <%= session.getAttribute("warning") %>
             </div>
