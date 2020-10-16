@@ -15,6 +15,9 @@ public class Factorielle {
         if(valeur < 1) {
             throw new Illegal­Argument­Exception("la valeur doit être strictement supérieur à 1 !");
         }
+        else if(valeur > 15) {
+            valeur = 15;
+        }
         String s = "";
         int total = 1;
         for(int i = 1; i <= valeur; i++) {

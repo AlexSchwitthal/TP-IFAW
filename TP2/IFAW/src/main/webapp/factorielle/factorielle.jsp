@@ -19,7 +19,7 @@
                 <div class="form-group">
                     <div>
                         <label for="factorielle">Factorielle :</label>
-                        <input type="number" id="factorielle" name="factorielle" class="form-control" min="1" max="10" required>
+                        <input type="number" id="factorielle" name="factorielle" class="form-control" min="1" max="15" required>
                         <br />
                     </div>
                     <div>
