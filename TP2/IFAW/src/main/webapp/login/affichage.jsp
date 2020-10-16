@@ -23,6 +23,7 @@
                 }
                 Date dateCourante = new Date();
                 DateFormat formatFR = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+                
                 if(session.getAttribute("dateCreation") == null) {
                     session.setAttribute("dateCreation", formatFR.format(dateCourante));
                 }
