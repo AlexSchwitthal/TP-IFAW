@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Titre de la page</title>
+        <title>Contact</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -60,7 +60,8 @@
                     </div>
 
                     <br />
-
+                    <hr>
+                    
                     <div>
                         <input type="submit" value="Soumettre" class="btn btn-primary">
 

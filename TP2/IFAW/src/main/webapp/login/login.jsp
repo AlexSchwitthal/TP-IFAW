@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
@@ -56,6 +56,7 @@
                         <input type="password" id="mdp" name="mdp" class="form-control" maxlength="15" required>
                         <br />
                     </div>
+                    <hr>
                     <div>
                         <input type="submit" value="Valider" class="btn btn-primary">
 
