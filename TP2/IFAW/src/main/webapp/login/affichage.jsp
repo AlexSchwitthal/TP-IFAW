@@ -39,14 +39,16 @@
         %>
         <div class="container">
             <%@include file="../header.jsp" %>
+            <div class="p-3 border bg-light">
                 <h4>Nom : <%= session.getAttribute("login") %></h4>
                 <h4>Dernière date d'accès : <%= session.getAttribute("dateVisite") %></h4>
                 <h4>Date de création de la session : <%= session.getAttribute("dateCreation") %></h4>
-                <hr>
-                <form action="login" method="post">
-                    <input type="hidden" value="supprimer" name="supprimer" />
-                    <input type="submit" value="Supprimer la session" class="btn btn-danger">
-                </form>
+            </div>
+            <hr>
+            <form action="login" method="post">
+                <input type="hidden" value="supprimer" name="supprimer" />
+                <input type="submit" value="Supprimer la session" class="btn btn-danger">
+            </form>
         </div>
     </body>
 </html>
