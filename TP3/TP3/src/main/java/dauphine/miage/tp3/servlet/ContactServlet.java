@@ -8,6 +8,7 @@ package dauphine.miage.tp3.servlet;
 import dauphine.miage.tp3.beans.Personne;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author alexa
  */
-@WebServlet(name = "ContactServlet", urlPatterns = {"/Confirmation"})
+@WebServlet(name = "ContactServlet", urlPatterns = {"/GestionContact"})
 public class ContactServlet extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -52,7 +53,7 @@ public class ContactServlet extends HttpServlet {
         
         Personne personne = new Personne();
         
-       // try {
+        try {
             HttpSession session = request.getSession(true);	
         
             personne.setName(checkNull(request.getParameter("name")));
@@ -76,12 +77,15 @@ public class ContactServlet extends HttpServlet {
             }
            
             session.setAttribute("personne", personne);
-            this.getServletContext().getRequestDispatcher("/contact/afficherContact.jsp").forward(request, response);
-      //  }
-    //    catch(IllegalArgumentException e) {
-    //        request.setAttribute("warning", "une erreur est survenue !");
-    //        this.getServletContext().getRequestDispatcher("/erreur.jsp").forward(request, response);
-    //    }        
+            RequestDispatcher rd = request.getRequestDispatcher("/Confirm");
+            rd.forward(request, response); 
+            //response.sendRedirect("/Confirmation");
+           // this.getServletContext().getRequestDispatcher("/Confirmation").forward(request, response);
+        }
+        catch(IllegalArgumentException e) {
+            request.setAttribute("warning", e);
+            this.getServletContext().getRequestDispatcher("/erreur.jsp").forward(request, response);
+        }        
     }
     
     private String checkNull(String value) {

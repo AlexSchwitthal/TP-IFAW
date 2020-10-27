@@ -15,6 +15,7 @@
     </head>
     <body>
         <div class="container">
+            <%@include file="../header.jsp" %>
             <br>
             <% 
                 if(request.getParameter("supprimer") != null) {

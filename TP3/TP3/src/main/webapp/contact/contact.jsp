@@ -7,10 +7,14 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <%@include file="../login/loginCheck.jsp" %>
+        <% 
+            if(session.getAttribute("personne") != null) {
+                session.removeAttribute("personne");
+            }
+        %>
         <div class="container">
             <%@include file="../header.jsp" %>
-            <form method="post"  action="Confirmation">
+            <form method="post"  action="GestionContact">
                 <div class="form-group">
                     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">

@@ -1,10 +1,18 @@
+<%@page import="dauphine.miage.tp3.beans.Personne"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<h1>TP2 : JSP</h1>
-<h2>Alexandre SCHWITTHAL</h2>
-<% 
+<h1>TP3 : Servlet</h1>
+<%
+    if(session.getAttribute("personne") != null) {
+        Personne personne = (Personne) session.getAttribute("personne");
+        %> <h2> Bonjour <%= personne.getName() %> </h2> <% 
+    } 
+    else {
+        %> <h2> Bonjour visiteur </h2> <%
+    }
+
     Date dateCourante = new Date();
     DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);                
 %>
