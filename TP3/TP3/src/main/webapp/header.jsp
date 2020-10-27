@@ -3,18 +3,28 @@
 <%@page import="java.util.Date"%>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<h1>TP3 : Servlet</h1>
+<h1>TP3 : Servlet</h1> <br>
 <%
-    if(session.getAttribute("personne") != null) {
-        Personne personne = (Personne) session.getAttribute("personne");
-        %> <h2> Bonjour <%= personne.getName() %> </h2> <% 
-    } 
-    else {
-        %> <h2> Bonjour visiteur </h2> <%
-    }
-
     Date dateCourante = new Date();
-    DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);                
+    DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);
+
+    Cookie[] cookies = request.getCookies();
+    if ( cookies != null ) {
+        for ( Cookie cookie : cookies ) {
+           if (cookie.getName().equals(("id")) ) {
+                %> <h3> votre id est <%= cookie.getValue() %> ,<% 
+            }
+            // incrémentation du nombre de connexion
+            else if (cookie.getName().equals("nbConnexion")) {
+                if(cookie.getValue().equals("1")) {
+                    %> il s'agit de votre première visite ! </h3> <%
+                }
+                else {
+                    %> vous avez visité ce site <%= cookie.getValue() %> fois ! </h3> <%
+                }       
+            }
+        }
+    }
 %>
 <h3> la date du jour est : <%= formatFR.format(dateCourante) %> </h3>
  

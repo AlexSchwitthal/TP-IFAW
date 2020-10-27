@@ -26,7 +26,7 @@
                     </nav>
 
                     <div>
-                        <img src="img/dauphine.jpg" alt="Dauphine">
+                        <img src="./img/dauphine.jpg" alt="dauphine">
                     </div>
 
                     <div>
