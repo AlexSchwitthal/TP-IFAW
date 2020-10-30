@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author alexa
  */
-@WebServlet(name = "CookieServlet", urlPatterns = {"/"})
+@WebServlet(name = "CookieServlet", urlPatterns = {""})
 public class CookieServlet extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -33,19 +33,11 @@ public class CookieServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);	
-        if(session.getAttribute("personne") != null) {
-            session.removeAttribute("personne");
-        }
         Cookie[] cookies = request.getCookies();
-        String valeurId = "abcd";
         boolean exist = false;
         if ( cookies != null ) {
             for ( Cookie cookie : cookies ) {
-                if(cookie.getName().equals("JSESSIONID")) {
-                    valeurId = cookie.getValue();
-                }
-                else if (cookie.getName().equals(("id")) ) {
+                if (cookie.getName().equals(("id")) ) {
                     exist = true;
                 }
                 // incrémentation du nombre de connexion
@@ -60,13 +52,14 @@ public class CookieServlet extends HttpServlet {
         
         // création du cookie et initialisation du nombre de connexion à 1
         if(!exist) {
-            Cookie id = new Cookie("id", valeurId);
+            HttpSession session = request.getSession(true);	
+            Cookie id = new Cookie("id", session.getId());
             response.addCookie(id);
             
             Cookie nbConnexion = new Cookie("nbConnexion", "1");
             response.addCookie(nbConnexion);
         }
-        
-        response.sendRedirect("contact");
+        //response.sendRedirect("/contact");
+       this.getServletContext().getRequestDispatcher("/contact").forward(request, response);
     }
 }

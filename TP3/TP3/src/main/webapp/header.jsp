@@ -5,9 +5,6 @@
 <link rel="stylesheet" href="css/style.css">
 <h1>TP3 : Servlet</h1> <br>
 <%
-    Date dateCourante = new Date();
-    DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);
-
     Cookie[] cookies = request.getCookies();
     if ( cookies != null ) {
         for ( Cookie cookie : cookies ) {
@@ -25,6 +22,9 @@
             }
         }
     }
+
+    Date dateCourante = new Date();
+    DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);
 %>
 <h3> la date du jour est : <%= formatFR.format(dateCourante) %> </h3>
  
