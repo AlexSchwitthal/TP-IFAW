@@ -72,6 +72,8 @@ public class LoginServlet extends HttpServlet {
             session.setMaxInactiveInterval(3600);
             
             updateCookies(request, response, session);
+            getServletContext().setAttribute(session.getId(), session.getId());
+            
             response.sendRedirect("affichage");
             //this.getServletContext().getRequestDispatcher("/affichage").forward(request, response);
 

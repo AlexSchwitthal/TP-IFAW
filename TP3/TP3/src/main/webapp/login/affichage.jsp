@@ -22,7 +22,7 @@
                 <h4>Date de création de la session : <%= session.getAttribute("dateCreation") %></h4>
             </div>
             <hr>
-            <form action="login" method="post">
+            <form action="LogoutServlet" method="post">
                 <input type="hidden" value="supprimer" name="supprimer" />
                 <input type="submit" value="Supprimer la session" class="btn btn-danger">
             </form>

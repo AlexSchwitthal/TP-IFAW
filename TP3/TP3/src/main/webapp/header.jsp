@@ -1,3 +1,4 @@
+<%@page import="java.util.Enumeration"%>
 <%@page import="dauphine.miage.tp3.beans.Personne"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Date"%>
@@ -5,12 +6,13 @@
 <link rel="stylesheet" href="css/style.css">
 <h1>TP3 : Servlet</h1> <br>
 <%
+    // GESTION DES COOKIES
     if(session.getAttribute("login") != null & request.getParameter("supprimer") == null) {
         Cookie[] cookies = request.getCookies();
         if ( cookies != null ) {
             for ( Cookie cookie : cookies ) {
                if (cookie.getName().equals(("id")) ) {
-                    %> <h3> votre id est <%= cookie.getValue() %> ,<% 
+                    %> <h3> Votre id est <%= cookie.getValue() %> ,<% 
                 }
                 // incrémentation du nombre de connexion
                 else if (cookie.getName().equals("nbConnexion")) {
@@ -24,8 +26,20 @@
             }
         }
     }
-   
+    
+    // NB USERS 
+    int nbUsers = 0;
+    ServletContext ctx = getServletContext();
+    Enumeration<String> attrNames = ctx.getAttributeNames();
+    while (attrNames.hasMoreElements()) {
+        String attrName = attrNames.nextElement();
+        if(!(attrName.contains("."))) {
+            nbUsers++;
+        }
+    }
+    %> <h4> Il y a actuellement <%= nbUsers %> utilisateur(s) connecté(s) </h4> <%
 
+    // GESTION DE LA DATE
     Date dateCourante = new Date();
     DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);
 %>

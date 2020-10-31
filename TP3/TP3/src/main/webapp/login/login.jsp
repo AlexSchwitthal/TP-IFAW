@@ -18,30 +18,9 @@
             <%@include file="../header.jsp" %>
             <br>
             <% 
-                if(request.getParameter("supprimer") != null) {
-                    session.invalidate();
-                    %>
-                    <div class="alert alert-primary" role="alert">
-                        La session a bien été supprimé !
-                    </div>
-                    <br>
-                    <%
-                }
-                
-                else {
-                    if(session.getAttribute("erreurAcces") != null) {
-                        %> 
-                        <div class="alert alert-danger" role="alert">
-                            <%= session.getAttribute("erreurAcces") %>
-                        </div>
-                        <%
-                        session.removeAttribute("erreurAcces");
-                    }
-
-                    if(session.getAttribute("login") != null) {
-                        response.sendRedirect("affichage");
-                    }
-                }
+            if(request.getAttribute("sessionDelete") != null) {
+                %> <%= request.getAttribute("sessionDelete") %> <%
+            }
             %>
             <h1>Bonjour, veuillez rentrer vos identifiants</h1>
             <hr>
