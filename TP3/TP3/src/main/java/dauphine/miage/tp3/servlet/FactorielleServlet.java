@@ -54,7 +54,7 @@ public class FactorielleServlet extends HttpServlet {
             String[] lines = result.split("!");
             request.setAttribute("lignes", lines);
             request.setAttribute("factorielle", request.getParameter("factorielle"));
-            this.getServletContext().getRequestDispatcher("factorielle/affichageFactorielle.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/factorielle/affichageFactorielle.jsp").forward(request, response);
         }
         catch(IllegalArgumentException e) {
             request.setAttribute("warning", "la valeur de factorielle saisie doit être un chiffre supérieur à 0 !");

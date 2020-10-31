@@ -4,7 +4,6 @@
     Author     : alexa
 --%>
 
-<%@page import="dauphine.miage.tp3.factorielle.Factorielle"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

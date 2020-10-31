@@ -79,8 +79,6 @@ public class ContactServlet extends HttpServlet {
             session.setAttribute("personne", personne);
             RequestDispatcher rd = request.getRequestDispatcher("/Confirm");
             rd.forward(request, response); 
-            //response.sendRedirect("/Confirmation");
-           // this.getServletContext().getRequestDispatcher("/Confirmation").forward(request, response);
         }
         catch(IllegalArgumentException e) {
             request.setAttribute("warning", e);

@@ -51,10 +51,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         HttpSession session = request.getSession(true);
-         PrintWriter out = response.getWriter();
-
-        out.println("LOL");
         try {
             // vérifie que l'on est bien passé par le formulaire de connexion
             if (session.getAttribute("login") == null && request.getParameter("login") == null) {
