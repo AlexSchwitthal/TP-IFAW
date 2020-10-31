@@ -14,30 +14,6 @@
         <title>Affichage</title>
     </head>
     <body>
-        <%
-            try {
-                // vérifie que l'on est bien passé par le formulaire de connexion
-                if(session.getAttribute("login") == null && request.getAttribute("login") == null) {
-                    session.setAttribute("erreurAcces", "Vous ne pouvez pas accéder à la page demandé, vous devez d'abord vous connecté");
-                    response.sendRedirect("login");
-                }
-                Date dateCourante = new Date();
-                DateFormat formatFR = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
-                
-                if(session.getAttribute("dateCreation") == null) {
-                    session.setAttribute("dateCreation", formatFR.format(dateCourante));
-                }
-                if(request.getParameter("login") != null) {
-                    session.setAttribute("login", request.getParameter("login"));
-                }
-                session.setAttribute("dateVisite", formatFR.format(dateCourante));  
-                session.setMaxInactiveInterval(3600);
-            }
-            catch(Exception e) {
-                session.setAttribute("warning", "une erreur est survenue !");
-                response.sendRedirect("erreur");
-            }
-        %>
         <div class="container">
             <%@include file="../header.jsp" %>
             <div class="p-3 border bg-light">

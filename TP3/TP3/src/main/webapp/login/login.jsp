@@ -45,7 +45,7 @@
             %>
             <h1>Bonjour, veuillez rentrer vos identifiants</h1>
             <hr>
-            <form method="post"  action="affichage">
+            <form method="post"  action="LoginServlet">
                 <div class="form-group">
                     <div>
                         <label for="login">Nom :</label>

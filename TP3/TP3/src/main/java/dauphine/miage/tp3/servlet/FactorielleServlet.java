@@ -34,8 +34,8 @@ public class FactorielleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("erreur !");
+        request.setAttribute("warning", "vous ne pouvez pas accéder à cette page !");
+        this.getServletContext().getRequestDispatcher("/erreur.jsp").forward(request, response);
     }
 
     /**
@@ -49,8 +49,6 @@ public class FactorielleServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("work !");
         try {
             String result = Factorielle.calculFactorielle(Integer.valueOf(request.getParameter("factorielle")));
             String[] lines = result.split("!");

@@ -5,23 +5,26 @@
 <link rel="stylesheet" href="css/style.css">
 <h1>TP3 : Servlet</h1> <br>
 <%
-    Cookie[] cookies = request.getCookies();
-    if ( cookies != null ) {
-        for ( Cookie cookie : cookies ) {
-           if (cookie.getName().equals(("id")) ) {
-                %> <h3> votre id est <%= cookie.getValue() %> ,<% 
-            }
-            // incrémentation du nombre de connexion
-            else if (cookie.getName().equals("nbConnexion")) {
-                if(cookie.getValue().equals("1")) {
-                    %> il s'agit de votre première visite ! </h3> <%
+    if(session.getAttribute("login") != null & request.getParameter("supprimer") == null) {
+        Cookie[] cookies = request.getCookies();
+        if ( cookies != null ) {
+            for ( Cookie cookie : cookies ) {
+               if (cookie.getName().equals(("id")) ) {
+                    %> <h3> votre id est <%= cookie.getValue() %> ,<% 
                 }
-                else {
-                    %> vous avez visité ce site <%= cookie.getValue() %> fois ! </h3> <%
-                }       
+                // incrémentation du nombre de connexion
+                else if (cookie.getName().equals("nbConnexion")) {
+                    if(cookie.getValue().equals("1")) {
+                        %> il s'agit de votre première visite ! </h3> <%
+                    }
+                    else {
+                        %> vous avez visité ce site <%= cookie.getValue() %> fois ! </h3> <%
+                    }       
+                }
             }
         }
     }
+   
 
     Date dateCourante = new Date();
     DateFormat formatFR = DateFormat.getDateInstance(DateFormat.SHORT);
