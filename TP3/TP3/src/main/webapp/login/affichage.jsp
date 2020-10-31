@@ -16,6 +16,11 @@
     <body>
         <div class="container">
             <%@include file="../header.jsp" %>
+            <%            
+                Date d = new Date();
+                DateFormat fr = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
+                session.setAttribute("dateVisite", fr.format(d));
+            %>
             <div class="p-3 border bg-light">
                 <h4>Nom : <%= session.getAttribute("login") %></h4>
                 <h4>Dernière date d'accès : <%= session.getAttribute("dateVisite") %></h4>

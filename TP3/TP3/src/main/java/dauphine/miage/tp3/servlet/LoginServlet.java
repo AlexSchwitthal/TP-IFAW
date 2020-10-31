@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet {
             if (session.getAttribute("dateCreation") == null) {
                 session.setAttribute("dateCreation", formatFR.format(dateCourante));
             }
-            if (request.getParameter("login") != null) {
+            if (session.getAttribute("login") == null) {
                 session.setAttribute("login", request.getParameter("login"));
             }
             session.setAttribute("dateVisite", formatFR.format(dateCourante));
