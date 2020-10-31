@@ -45,17 +45,4 @@ public class ContextServlet extends HttpServlet {
             }
         }
     }
-    
-    public int getNbUsers(HttpServletRequest request, HttpServletResponse response) {
-        int nbUsers = 0;
-        ServletContext ctx = getServletContext();
-        Enumeration<String> attrNames = ctx.getAttributeNames();
-        while (attrNames.hasMoreElements()) {
-            String attrName = attrNames.nextElement();
-            if(!(attrName.contains("."))) {
-                nbUsers++;
-            }
-        }
-        return nbUsers;
-    }
 }
